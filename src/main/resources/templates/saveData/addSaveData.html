@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add data</title>
+</head>
+<body>
+<div>
+    <header>
+        <div>
+
+        </div>
+        <div><h3>Name Management</h3></div>
+        <div><a href=""> View All</a></div>
+    </header>
+</div>
+<div>
+    <form action="/saveData/save" data-th-object="${saveData}" method="post">
+        <label>
+            Name :
+            <input name="name" type="text">
+        </label>
+
+        <button style="background-color: green" type="submit">Submit</button>
+        <button style="background-color: greenyellow" type="reset">Reset</button>
+    </form>
+</div>
+</body>
+</html>

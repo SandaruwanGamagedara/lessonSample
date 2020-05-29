@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All Data </title>
+</head>
+<body>
+<div>
+    <header>
+        <div>
+            <a href="/saveData/new">
+                <button>Add New</button>
+            </a>
+        </div>
+        <div><h3>Name Management</h3></div>
+        <div></div>
+    </header>
+</div>
+<div>
+    <table>
+        <tr>
+            <td>Name</td>
+            <td>Modify</td>
+        </tr>
+        <tr th:each="data : ${all}">
+            <td th:text="${data.name}"></td>
+            <td>
+                <a href="">
+                    <button style="background-color: blue">View</button>
+                </a>
+                <a href="">
+                    <button style="background-color: green">Update</button>
+                </a>
+                <a href="">
+                    <button style="background-color: red">Delete</button>
+                </a>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Request Form</title>
+</head>
+<body>
+<form action="/requestForm" method="post">
+    <label> Name :
+        <input name="name" type="text">
+    </label>
+    <button type="submit">Submit</button>
+</form>
+
+<hr>
+<p th:text="${saveDate}"></p>
+<p th:text="${arraySize}"></p>
+<hr>
+<!--<ol>
+    <li>Abc</li>
+    <li>Cde</li>
+    <li>Efg</li>
+    <li>Hij</li>
+</ol>-->
+<hr>
+<ol>
+    <li data-th-each="data : ${saveDate}" th:text="${data}"></li>
+</ol>
+<script>
+/*    let data; // == array
+   elementNote1 = <ol>
+    for (){
+        elementNode = <li>
+        elementNode.innerHtml = data[1].name;
+        elementNode1.appendChild elementNode
+    }
+
+    */
+
+
+</script>
+</body>
+</html>
