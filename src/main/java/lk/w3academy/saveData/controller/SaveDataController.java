@@ -10,7 +10,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/saveData")
@@ -39,7 +38,7 @@ public class SaveDataController implements AbstractController<SaveData, Integer>
     }
 
     @PostMapping("/save")
-    public String persist(@Valid @ModelAttribute SaveData saveData, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
+    public String persist(@ModelAttribute SaveData saveData, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
         saveDataService.persist(saveData);
         return "redirect:/saveData";
     }

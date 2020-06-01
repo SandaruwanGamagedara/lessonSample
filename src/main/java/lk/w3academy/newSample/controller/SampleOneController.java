@@ -11,7 +11,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/sampleOne")
@@ -40,7 +39,7 @@ public class SampleOneController implements AbstractController<SampleOne, Intege
     }
 
     @PostMapping("/save")
-    public String persist(@Valid @ModelAttribute SampleOne sampleOne, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
+    public String persist(@ModelAttribute SampleOne sampleOne, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
         sampleOneService.persist(sampleOne);
         return "redirect:/sampleOne";
     }

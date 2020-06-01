@@ -5,7 +5,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.validation.Valid;
 
 public interface AbstractController<E, I> {
     /**
@@ -26,7 +25,7 @@ public interface AbstractController<E, I> {
     /**
      * 4. Save and Update {} data using relevant entity belongs to model Attribute
      */
-    String persist(@Valid @ModelAttribute E e, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model);
+    String persist(@ModelAttribute E e, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model);
 
     /**
      * 5. Remove One relevant things belongs provided entity {} id

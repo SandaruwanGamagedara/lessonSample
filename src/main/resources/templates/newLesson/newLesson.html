@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+
+    <!-- Bootstrap CSS -->
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <div class="container-fluid">
+        <a href="/newLesson/new">
+            <button class="btn btn-info">New Lesson</button>
+        </a>
+    </div>    <p class="h1"> All New Lesson</p>    <!--need to show new lessons-->
+    <div class="container-fluid">
+  <!--      <span th:each="index, sizea : ${newLessons}" th:text="${sizea.size}"></span>-->
+        <div class="container">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Index</th>
+                    <th>Name</th>
+                    <th>Mobile</th>
+                    <th>Modify</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="newLesson, index : ${newLessons}">
+                    <td th:text="${index.count}"></td>
+                    <td th:text="${newLesson.name}"></td>
+                    <td th:text="${newLesson.mobile}"></td>
+                    <td>
+                        <a th:href="${'/newLesson/view/'+ newLesson.id}">
+                            <button class="btn btn-success">View</button>
+                        </a>
+                        <a th:href="${'/newLesson/edit/'+ newLesson.id}">
+                            <button class="btn btn-info">Edit</button>
+                        </a>
+                        <a th:href="${'/newLesson/delete/'+ newLesson.id}">
+                            <button class="btn btn-danger">Delete</button>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- /.table -->
+    </div>
+</div>
+<!-- /.container -->
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script crossorigin="anonymous"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+    let abc = [];
+    for (let i = 0; i < abc.length; i++) {
+        console.log(abc[i]);
+    }
+
+    abc.forEach(abc => console.log(abc));
+
+</script>
+</body>
+</html>
