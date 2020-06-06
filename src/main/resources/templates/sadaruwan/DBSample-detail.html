@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <title>Title</title>
     <!-- Required meta tags -->
@@ -11,29 +11,30 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
 </head>
 <body>
+
 <div class="container">
-    <div class="container-fluid">
-        <span class="h1"> Lesson Detail</span>
-        <div class="container">
-            <p class="h3">
-                <span class="mr-3">Id : </span> <span data-th-text="${newLessonDetail.id}"></span>
-            </p>
-            <p class="h3">
-                <span class="mr-3">Name : </span> <span th:text="${newLessonDetail.name}"></span>
-            </p>
-            <p class="h3">
-                <span class="mr-3">Mobile : </span> <span th:text="${newLessonDetail.mobile}"></span>
-            </p>
-        </div>
-        <div class="container-fluid text-center">
-            <a href="/newLesson">
-                <button class="btn btn-info">Back</button>
-            </a>
-        </div>
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input aria-describedby="nameId" class="form-control" data-th-value="${DBSample.name}" id="name" name="name"
+               placeholder="Enter Name"
+               type="text">
+        <small class="text-muted" id="nameId">Enter Name</small>
     </div>
-    <!-- /.container-fluid -->
+    <div class="form-group">
+        <label for="mobile">Mobile</label>
+        <input aria-describedby="mobileId" class="form-control" data-th-value="${DBSample.mobile}" id="mobile"
+               name="mobile"
+               placeholder="Enter Mobile"
+               type="text">
+        <small class="text-muted" id="mobileId">Enter Mobile Number</small>
+    </div>
 </div>
-<!-- /.container -->
+<div class="container">
+    <a href="/dbSample">
+        <button class="btn btn-default">Back</button>
+    </a>
+</div>
+
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script crossorigin="anonymous"

@@ -19,6 +19,24 @@ public class SaveDataController implements AbstractController<SaveData, Integer>
     public SaveDataController(SaveDataService saveDataService) {
         this.saveDataService = saveDataService;
     }
+    //1.form
+    //2.persist   |Create  & update { -> edit}
+    //3.findAll   |read
+    //4.findById  |read
+    //5.Delete    |Delete
+
+    @GetMapping("/new")
+    public String form(Model model) {
+        model.addAttribute("saveData", new SaveData());
+        return "saveData/addSaveData";
+    }
+
+    @PostMapping("/save")
+    public String persist(@ModelAttribute SaveData saveData, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
+        System.out.println("saveData form frontend  " + saveData.toString());
+        System.out.println("saveData form backend  " + saveDataService.persist(saveData).toString());
+        return "redirect:/saveData";
+    }
 
     @GetMapping
     public String findAll(Model model) {
@@ -32,27 +50,19 @@ public class SaveDataController implements AbstractController<SaveData, Integer>
         return "saveData/saveData-Detail";
     }
 
-    @GetMapping("/edit/{id}")
-    public String edit(@PathVariable Integer id, Model model) {
-        return null;
-    }
-
-    @PostMapping("/save")
-    public String persist(@ModelAttribute SaveData saveData, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
-        saveDataService.persist(saveData);
-        return "redirect:/saveData";
-    }
-
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Integer id, Model model) {
         saveDataService.delete(id);
-
         return "redirect:/saveData";
     }
 
-    @GetMapping("/new")
-    public String form(Model model) {
-        model.addAttribute("saveData", new SaveData());
+
+    @GetMapping("/edit/{id}")
+    public String edit(@PathVariable Integer id, Model model) {
+        model.addAttribute("saveData", saveDataService.findById(id));
+        model.addAttribute("addState", true);
         return "saveData/addSaveData";
     }
+
+
 }

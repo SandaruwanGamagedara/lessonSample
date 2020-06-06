@@ -13,6 +13,7 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
+@ToString
 public class SaveData {//save_data
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

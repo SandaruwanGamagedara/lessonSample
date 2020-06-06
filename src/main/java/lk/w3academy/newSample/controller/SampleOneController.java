@@ -47,7 +47,6 @@ public class SampleOneController implements AbstractController<SampleOne, Intege
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Integer id, Model model) {
         sampleOneService.delete(id);
-
         return "redirect:/sampleOne";
     }
 

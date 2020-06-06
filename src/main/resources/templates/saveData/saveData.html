@@ -19,19 +19,23 @@
 <div>
     <table>
         <tr>
+            <td>Index</td>
             <td>Name</td>
+            <td>First Name</td>
             <td>Modify</td>
         </tr>
-        <tr th:each="data : ${all}">
+        <tr th:each="data, abc : ${all}">
+            <td th:text="${abc.count}"></td>
             <td th:text="${data.name}"></td>
+            <td th:text="${data.firstName}"></td>
             <td>
-                <a href="">
+                <a th:href="${'/saveData/'+data.id}">
                     <button style="background-color: blue">View</button>
                 </a>
-                <a href="">
+                <a th:href="${'/saveData/edit/'+data.id}">
                     <button style="background-color: green">Update</button>
                 </a>
-                <a href="">
+                <a th:href="${'/saveData/delete/'+data.id}">
                     <button style="background-color: red">Delete</button>
                 </a>
             </td>

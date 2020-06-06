@@ -16,11 +16,17 @@
 </div>
 <div>
     <form action="/saveData/save" data-th-object="${saveData}" method="post">
+        <input data-th-if="${addState}" data-th-field="*{id}" type="text" readonly>
         <label>
             Name :
-            <input name="name" type="text">
+            <input data-th-field="*{name}" placeholder="Enter name" type="text">
         </label>
-
+        <br>
+        <label>
+            First Name :
+            <input data-th-field="*{firstName}" placeholder="Enter First Name" type="text">
+        </label>
+<br>
         <button style="background-color: green" type="submit">Submit</button>
         <button style="background-color: greenyellow" type="reset">Reset</button>
     </form>
